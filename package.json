@@ -1,11 +1,13 @@
 {
     "name": "@jobrouter/api",
-    "version": "5.1.14",
+    "version": "5.1.15-beta.1",
     "description": "JobRouter® JavaScript API",
     "main": "",
     "author": "JobRouter AG",
     "license": "MIT",
-    "files": ["api.d.ts"],
+    "files": [
+        "api.d.ts"
+    ],
     "typings": "api.d.ts",
     "repository": "https://github.com/jobrouter/javascript-api",
     "homepage": "https://www.jobrouter.com"

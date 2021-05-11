@@ -42,11 +42,11 @@ declare const jr_set_subtable_value: (subtableViewName: string, rowId: number, c
 declare const jr_set_subtable_display_value: (subtableViewName: string, rowId: number, columnName: string, value: any, customHandler?: CustomErrorHandler) => void;
 declare const jr_get_subtable_value: (subtableViewName: string, rowId: number, columnName: string, customHandler?: CustomErrorHandler) => any;
 declare const jr_get_subtable_display_value: (subtableViewName: string, rowId: number, columnName: string, customHandler?: CustomErrorHandler) => any;
-declare const jr_add_subtable_row: (subtableViewName: string, numberOfRows: number | Object | Object[], ignoreMaxRows: boolean, finishCallback: (addedRows: number) => void, customHandler?: CustomErrorHandler) => void;
-declare const jr_remove_subtable_row: (subtableViewName: string, rowId: number | number[], ignoreMinRows: boolean) => void;
+declare const jr_add_subtable_row: (subtableViewName: string, numberOfRows: number | Object | Object[], ignoreMaxRows?: boolean, finishCallback?: (addedRows: number) => void, customHandler?: CustomErrorHandler) => void;
+declare const jr_remove_subtable_row: (subtableViewName: string, rowId: number | number[], ignoreMinRows?: boolean) => void;
 declare const jr_copy_subtable_row: (subtableViewName: string, rowId: number | number[]) => void;
-declare const jr_hide_subtable_column: (subtableViewName: string, columnId: string | string[], radioValue: string) => void;
-declare const jr_show_subtable_column: (subtableViewName: string, columnId: string | string[], radioValue: string) => void;
+declare const jr_hide_subtable_column: (subtableViewName: string, columnId: string | string[], radioValue?: string) => void;
+declare const jr_show_subtable_column: (subtableViewName: string, columnId: string | string[], radioValue?: string) => void;
 declare const jr_hide_subtable_row: (subtableViewName: string, rowId: number) => void;
 declare const jr_show_subtable_row: (subtableViewName: string, rowId: number) => void;
 declare const jr_get_subtable_count: (subtableViewName: string, customHandler?: CustomErrorHandler) => number;
@@ -56,8 +56,8 @@ declare const jr_sum_subtable_column: (subtableViewName: string, columnName: str
 declare const jr_loop_table: (subtableViewName: string, callback: (subtableView: string, currentRow: number) => void, customHandler?: CustomErrorHandler) => void;
 declare const jr_set_column_label: (elementName: string, columnName: string, label: string, customHandler?: CustomErrorHandler) => void;
 declare const jr_get_column_label: (elementName: string, columnName: string, customHandler?: CustomErrorHandler) => string;
-declare const jr_set_cell_label2: (subtableViewName: string, rowId: number, columnName: string, label: string, radioValue: string, customHandler?: CustomErrorHandler) => void;
-declare const jr_get_cell_label2: (subtableViewName: string, rowId: number, columnName: string, radioValue: string, customHandler?: CustomErrorHandler) => string;
+declare const jr_set_cell_label2: (subtableViewName: string, rowId: number, columnName: string, label: string, radioValue?: string, customHandler?: CustomErrorHandler) => void;
+declare const jr_get_cell_label2: (subtableViewName: string, rowId: number, columnName: string, radioValue?: string, customHandler?: CustomErrorHandler) => string;
 declare const jr_get_table_count: (tableName: string, customHandler?: CustomErrorHandler) => number;
 declare const jr_get_table_max_id: (tableName: string, customHandler?: CustomErrorHandler) => number;
 declare const jr_set_table_background_color: (tableName: string, rowId: number | "*", columnName: string, color: string, customHandler?: CustomErrorHandler) => void;

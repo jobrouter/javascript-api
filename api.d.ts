@@ -63,7 +63,7 @@ declare const jr_get_table_max_id: (tableName: string, customHandler?: CustomErr
 declare const jr_set_table_background_color: (tableName: string, rowId: number | "*", columnName: string, color: string, customHandler?: CustomErrorHandler) => void;
 declare const jr_date_add: (date: Date, value: string, timeUnit: TimeUnit, customHandler?: CustomErrorHandler) => Date;
 declare const jr_date_diff: (date1: Date, date2: Date, timeUnit: TimeUnit, customHandler?: CustomErrorHandler) => number;
-declare const jr_sql_refresh: (id: ElementId | ElementId[], successCallback?: (id: ElementId, value: any) => void, errorCallback?: (id: ElementId, error: string) => void, sequential?: boolean) => void;
+declare const jr_sql_refresh: (id: ElementId | ElementId[], successCallback?: (id: ElementId, oldValue: any) => void, errorCallback?: (id: ElementId, error: string) => void, sequential?: boolean) => void;
 declare const jr_subtable_refresh: (subtableViewName: string, columnName?: string, rowId?: number | "*", successCallback?: (subtableViewName: string, columnName: string, rowId: number | "*") => void, errorCallback?: (subtableViewName: string, columnName: string, rowId: number | "*", error: string) => void, customHandler?: CustomErrorHandler) => void;
 declare const jr_message: (message: string, data?: Object, customHandler?: CustomErrorHandler) => void;
 declare const jr_get_message: (message: string, data?: Object, customHandler?: CustomErrorHandler) => string;

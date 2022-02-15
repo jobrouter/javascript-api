@@ -38,7 +38,7 @@ declare const jr_is_readonly: (id: ElementId, customHandler?: CustomErrorHandler
 declare const jr_set_disabled: (id: ElementId, value?: boolean, customHandler?: CustomErrorHandler) => void;
 declare const jr_is_disabled: (id: ElementId, customHandler?: CustomErrorHandler) => boolean;
 declare const jr_set_background_color: (id: ElementId, color: string, customHandler?: CustomErrorHandler) => void;
-declare const jr_set_subtable_value: (subtableViewName: string, rowId: number | "sum", columnName: string, value: any, customHandler?: CustomErrorHandler) => void;
+declare const jr_set_subtable_value: (subtableViewName: string, rowId: number, columnName: string, value: any, customHandler?: CustomErrorHandler) => void;
 declare const jr_set_subtable_display_value: (subtableViewName: string, rowId: number, columnName: string, value: any, customHandler?: CustomErrorHandler) => void;
 declare const jr_get_subtable_value: (subtableViewName: string, rowId: number | "sum", columnName: string, customHandler?: CustomErrorHandler) => any;
 declare const jr_get_subtable_display_value: (subtableViewName: string, rowId: number, columnName: string, customHandler?: CustomErrorHandler) => any;

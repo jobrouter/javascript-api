@@ -20,27 +20,20 @@ type DialogErrorReturnObject = {
     };
 };
 type ElementValue = string | number | Date | boolean;
-type MessageData = {
-    [key: string]: ElementValue;
+type MessageReplacements = {
+    [key: string]: string;
 };
 type StepAction = "abort" | "answer" | "assign" | "back" | "finish" | "jumpTo" | "request" | "resubmission" | "save" | "send";
-type Stamp = {
-    text: string;
-    includeTime: boolean;
-    includeDate: boolean;
-    color: string;
-    onStamp?: (stamp: Stamp, x: number, y: number) => void;
-};
+type Stamp = { text: string } & StampOptions;
+type StampOptionOnStampFunction = (stamp: Stamp, x: number, y: number) => void;
 type StampOptions = {
     includeTime: boolean;
     includeDate: boolean;
     color: string;
-    onStamp?: (stamp: Stamp, x: number, y: number) => void;
+    onStamp?: StampOptionOnStampFunction;
 };
 type SubtableData = {
-    [key: number]: {
-        [key: string]: ElementValue;
-    };
+    [key: number]: SubtableRowObject;
 };
 type SubtableRowObject = {
     [key: string]: ElementValue;
@@ -77,7 +70,7 @@ declare const jr_set_subtable_value: (subtableViewName: string, rowId: number, c
 declare const jr_set_subtable_display_value: (subtableViewName: string, rowId: number, columnName: string, value: ElementValue, customHandler?: CustomErrorHandler) => void;
 declare const jr_get_subtable_value: (subtableViewName: string, rowId: number | "sum", columnName: string, customHandler?: CustomErrorHandler) => ElementValue;
 declare const jr_get_subtable_display_value: (subtableViewName: string, rowId: number, columnName: string, customHandler?: CustomErrorHandler) => ElementValue;
-declare const jr_add_subtable_row: (subtableViewName: string, numberOfRows: number | SubtableRowObject | SubtableRowObject[], ignoreMaxRows?: boolean, finishCallback?: (addedRows: number) => void, customHandler?: CustomErrorHandler) => void;
+declare const jr_add_subtable_row: (subtableViewName: string, rows: number | SubtableRowObject | SubtableRowObject[], ignoreMaxRows?: boolean, finishCallback?: (addedRows: number) => void, customHandler?: CustomErrorHandler) => void;
 declare const jr_remove_subtable_row: (subtableViewName: string, rowId: number | number[], ignoreMinRows?: boolean) => void;
 declare const jr_copy_subtable_row: (subtableViewName: string, rowId: number | number[]) => void;
 declare const jr_hide_subtable_column: (subtableViewName: string, columnName: string | string[], radioValue?: string) => void;
@@ -100,8 +93,8 @@ declare const jr_date_add: (date: Date, value: string, timeUnit: TimeUnit, custo
 declare const jr_date_diff: (date1: Date, date2: Date, timeUnit: TimeUnit, customHandler?: CustomErrorHandler) => number;
 declare const jr_sql_refresh: (id: string | string[], successCallback?: (id: string, oldValue: ElementValue) => void, errorCallback?: (id: string, error: string) => void, sequential?: boolean) => void;
 declare const jr_subtable_refresh: (subtableViewName: string, columnName?: string, rowId?: number | "*", successCallback?: (subtableViewName: string, columnName: string, rowId: number | "*") => void, errorCallback?: (subtableViewName: string, columnName: string, rowId: number | "*", error: string) => void, customHandler?: CustomErrorHandler) => void;
-declare const jr_message: (message: string, data?: MessageData, customHandler?: CustomErrorHandler) => void;
-declare const jr_get_message: (message: string, data?: MessageData, customHandler?: CustomErrorHandler) => string;
+declare const jr_message: (message: string, replacements?: MessageReplacements, customHandler?: CustomErrorHandler) => void;
+declare const jr_get_message: (message: string, replacements?: MessageReplacements, customHandler?: CustomErrorHandler) => string;
 declare const jr_allow_send: (value: boolean) => void;
 declare const jr_enable_send: () => void;
 declare const jr_disable_send: () => void;

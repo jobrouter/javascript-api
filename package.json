@@ -1,6 +1,6 @@
 {
     "name": "@jobrouter/api",
-    "version": "2022.1.6-beta.1",
+    "version": "2022.1.6-stable",
     "description": "JobRouter® JavaScript API",
     "main": "",
     "author": "JobRouter AG",

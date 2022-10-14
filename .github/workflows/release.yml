@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           token: ${{ secrets.REPO_TOKEN }}
       - name: Update version
@@ -22,16 +22,15 @@ jobs:
           version: ${{ github.event.inputs.newVersion }}
           git-tag-version: 'false'
       - name: Tag
-        uses: EndBug/add-and-commit@v7
+        uses: EndBug/add-and-commit@v9
         with:
           add: 'package.json'
           author_name: 'JobRouterBot'
           author_email: 'opensource@jobrouter.com'
           message: 'Bump version to ${{ github.event.inputs.newVersion }}'
-          pull_strategy: 'NO-PULL'
           push: true
           remove: ''
-          signoff: true
+          commit: --signoff
           tag: 'v${{ github.event.inputs.newVersion }}'
       - name: Publish
         uses: JS-DevTools/npm-publish@v1

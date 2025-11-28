@@ -36,6 +36,4 @@ jobs:
           commit: --signoff
           tag: 'v${{ github.event.inputs.newVersion }}'
       - name: Publish
-        uses: JS-DevTools/npm-publish@v1
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
+        run: npm publish

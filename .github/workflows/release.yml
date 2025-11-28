@@ -10,6 +10,7 @@ on:
 
 permissions:
   id-token: write
+  contents: read
   
 jobs:
   release:
@@ -41,4 +42,4 @@ jobs:
           commit: --signoff
           tag: 'v${{ github.event.inputs.newVersion }}'
       - name: Publish
-        run: 'npm publish --tag ${{ github.event.inputs.newVersion }}'
+        uses: JS-DevTools/npm-publish@v4

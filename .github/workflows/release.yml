@@ -8,6 +8,9 @@ on:
         required: true
         default: 'invalid'
 
+permissions:
+  id-token: write
+
 jobs:
   release:
     runs-on: ubuntu-latest

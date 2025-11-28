@@ -41,4 +41,4 @@ jobs:
           commit: --signoff
           tag: 'v${{ github.event.inputs.newVersion }}'
       - name: Publish
-        run: 'npm publish --tag v${{ github.event.inputs.newVersion }}'
+        run: 'npm publish --tag ${{ github.event.inputs.newVersion }}'
